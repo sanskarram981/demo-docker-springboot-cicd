@@ -14,13 +14,13 @@ unzip apache-maven-3.8.3-bin.zip -d /opt && rm apache-maven-3.8.3-bin.zip && mv 
 
 RUN mvn -version
 
-COPY ./pom.xml /home/ubuntu/app/pom.xml
-COPY ./src /home/ubuntu/app/src
+COPY ./pom.xml ./pom.xml
+COPY ./src ./src
 
 RUN mvn clean install
 
 EXPOSE 8080
 
-RUN mv /home/ubuntu/app/target/demo-0.0.1-SNAPSHOT.jar /home/ubuntu/app/target/demo.jar
+RUN mv ./target/demo-0.0.1-SNAPSHOT.jar ./target/demo.jar
 
-CMD ["java", "-jar", "/home/ubuntu/app/target/demo.jar"]
+CMD ["java", "-jar", "./target/demo.jar"]
