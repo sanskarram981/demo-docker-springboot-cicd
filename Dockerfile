@@ -3,8 +3,8 @@ FROM openjdk:8-jdk-alpine
 LABEL maintainer="sanskarram992@gmail.com" version="1.0" description="This is a sample Docker image"
 
 WORKDIR home/ubuntu/app
-RUN apt-get update && \
-    apt-get install -y wget unzip && \
+RUN sudo apt-get update && \
+    sudo apt-get install -y wget unzip && \
     wget https://downloads.apache.org/maven/maven-3/3.8.3/binaries/apache-maven-3.8.3-bin.zip && \
     unzip apache-maven-3.8.3-bin.zip && \
     mv apache-maven-3.8.3 /usr/local/maven && \
