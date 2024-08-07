@@ -16,6 +16,6 @@ COPY ./src home/ubuntu/app/src
 RUN mvn clean install
 EXPOSE 8080
 
-COPY /home/ubuntu/app/target/demo-0.0.1-SNAPSHOT.jar /home/ubuntu/app/target/demo.jar
+RUN /home/ubuntu/app/target/demo-0.0.1-SNAPSHOT.jar /home/ubuntu/app/target/demo.jar
 
 CMD ["java", "-jar", "target/demo.jar"]
