@@ -9,12 +9,12 @@ ENV MAVEN_HOME=/opt/maven
 ENV PATH=$MAVEN_HOME/bin:$PATH
 
 # Install dependencies and Maven
-RUN apt-get update && \
-    apt-get install -y wget unzip && \
-    wget https://downloads.apache.org/maven/maven-3/3.8.3/binaries/apache-maven-3.8.3-bin.zip && \
-    unzip apache-maven-3.8.3-bin.zip -d /opt && \
-    rm apache-maven-3.8.3-bin.zip && \
-    mv /opt/apache-maven-3.8.3 $MAVEN_HOME
+RUN apt-get update
+RUN apt-get install -y wget unzip
+RUN wget https://downloads.apache.org/maven/maven-3/3.8.3/binaries/apache-maven-3.8.3-bin.zip
+RUN unzip apache-maven-3.8.3-bin.zip -d /opt
+RUN rm apache-maven-3.8.3-bin.zip
+RUN mv /opt/apache-maven-3.8.3 $MAVEN_HOME
 
 RUN mvn -version
 
