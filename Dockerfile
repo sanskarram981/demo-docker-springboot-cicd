@@ -8,10 +8,13 @@ ENV MAVEN_VERSION=3.8.3
 ENV MAVEN_HOME=/opt/maven
 ENV PATH=$MAVEN_HOME/bin:$PATH
 
-COPY pom.xml /home/ubuntu/app/pom.xml
-COPY src home/ubuntu/app/src
+COPY ./pom.xml /home/ubuntu/app/pom.xml
+COPY ./src /home/ubuntu/app/src
+
 
 RUN mvn clean install
+
+
 EXPOSE 8080
 
 RUN mv /home/ubuntu/app/target/demo-0.0.1-SNAPSHOT.jar /home/ubuntu/app/target/demo.jar
