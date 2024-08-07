@@ -1,5 +1,7 @@
 FROM openjdk:8-jdk-alpine
-MAINTAINER sanskrram992@gmail.com
+
+LABEL maintainer="sanskarram992@gmail.com" version="1.0" description="This is a sample Docker image"
+
 WORKDIR home/ubuntu/app
 RUN apt-get update && \
     apt-get install -y wget unzip && \
