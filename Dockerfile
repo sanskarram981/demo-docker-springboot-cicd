@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM openjdk:8
 
 LABEL maintainer="sanskarram992@gmail.com" version="1.0" description="This is a sample Docker image"
 
