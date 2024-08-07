@@ -1,16 +1,14 @@
-FROM openjdk:8-jdk-alpine
+FROM openjdk:8
 
 LABEL maintainer="sanskarram992@gmail.com" version="1.0" description="This is a sample Docker image"
 
 WORKDIR home/ubuntu/app
-RUN sudo apt-get update && \
-    sudo apt-get install -y wget unzip && \
-    wget https://downloads.apache.org/maven/maven-3/3.8.3/binaries/apache-maven-3.8.3-bin.zip && \
-    unzip apache-maven-3.8.3-bin.zip && \
-    mv apache-maven-3.8.3 /usr/local/maven && \
-    ln -s /usr/local/maven/bin/mvn /usr/bin/mvn
 
-RUN mvn -version
+ENV MAVEN_VERSION=3.8.3
+ENV MAVEN_HOME=/opt/maven
+ENV PATH=$MAVEN_HOME/bin:$PATH
+
+
 
 COPY ./pom.xml home/ubuntu/app
 COPY ./src home/ubuntu/app/src
