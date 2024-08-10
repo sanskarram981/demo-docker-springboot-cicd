@@ -7,7 +7,7 @@ echo -e "${GREEN}Welcome to Jenkins installation${RESET}"
 
 # Update and install OpenJDK
 sudo apt update
-sudo apt install -y openjdk-11-jdk
+sudo apt install -y openjdk-21-jdk
 
 # Verify Java installation
 java -version
