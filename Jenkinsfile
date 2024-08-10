@@ -26,7 +26,10 @@ pipeline {
         }
         stage('Docker Image Creation Stage') {
            steps {
-                    sh 'docker build -t demo-app:latest .'
+                      sh 'docker stop demo-app-container'
+                      sh 'docker rm -f demo-app-container'
+                      sh 'docker rmi -f demo-app:latest'
+                      sh 'docker build -t demo-app:latest .'
             }
         }
         stage('Deploying as container in current environment') {
