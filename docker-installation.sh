@@ -7,5 +7,5 @@ sudo apt install docker-ce
 docker --version
 sudo usermod -aG docker $USER
 sudo apt install docker-compose
-sudo reboot
 echo "Exiting from docker installation"
+sudo reboot
