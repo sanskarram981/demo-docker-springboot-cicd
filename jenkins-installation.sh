@@ -23,6 +23,11 @@ sudo wget https://get.jenkins.io/war-stable/latest/jenkins.war
 # Create the systemd service file for Jenkins
 SERVICE_FILE="/etc/systemd/system/jenkins.service"
 
+if [ -f $SERVICE_FILE ]; then
+    echo "Removing existing jenkins.service file"
+    sudo rm $SERVICE_FILE
+fi
+
 sudo bash -c "cat > $SERVICE_FILE <<EOL
 [Unit]
 Description=Jenkins Continuous Integration Server
@@ -43,6 +48,6 @@ EOL"
 sudo systemctl daemon-reload
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
-sudo systemctl status jenkins
+echo "please fire sudo systemctl status jenkins"
 
 echo -e "${GREEN}Exiting from Jenkins installation${RESET}"
