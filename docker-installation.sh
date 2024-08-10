@@ -8,4 +8,4 @@ docker --version
 sudo usermod -aG docker $USER
 sudo apt install docker-compose
 sudo reboot
-docker run hello-world
+echo "Exiting from docker installation"
